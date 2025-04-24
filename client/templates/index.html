@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEditor - Collaborative Code Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to WEditor</h2>
+            <div class="auth-form">
+                <input type="text" placeholder="Username" id="login-username">
+                <input type="password" placeholder="Password" id="login-password">
+                <button class="auth-btn" onclick="handleLogin()">Login</button>
+                <button class="auth-btn" onclick="handleSignup()">Sign Up</button>
+                <button class="auth-btn guest" onclick="continueAsGuest()">Continue as Guest</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="username">guest</span>
+            </div>
+            
+            <div class="file-tabs">
+                <div class="tab-header">
+                    <span>FILES</span>
+                    <button class="icon-btn" onclick="createNewFile()"><i class="fas fa-plus"></i></button>
+                </div>
+                <div id="file-list" class="tab-list">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="toolbar">
+                <div class="status-indicator">
+                    <span id="connection-status" class="disconnected"></span>
+                </div>
+                <div class="controls">
+                    <button class="toolbar-btn" id="save-snapshot-btn" title="Save Snapshot">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <textarea id="text-area" spellcheck="false"></textarea>
+            </div>
+            
+            <div class="snapshot-panel">
+                <h3><i class="fas fa-history"></i> Snapshots</h3>
+                <select id="snapshot-list" size="3"></select>
+                <button class="snapshot-btn" id="revert-snapshot-btn" disabled>
+                    <i class="fas fa-undo"></i> Revert
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
