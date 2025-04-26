@@ -1,0 +1,68 @@
+/* Basic Styling */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+#editor {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#text-area {
+    width: 90%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#status {
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+}
+
+#connection-status.connected {
+    color: green;
+    font-weight: bold;
+}
+
+#connection-status.disconnected {
+    color: red;
+    font-weight: bold;
+}
+
+#controls, #history {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#history h2 {
+    margin-bottom: 10px;
+}
+
+#snapshot-list {
+    min-width: 250px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+#save-snapshot-btn, #revert-snapshot-btn {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#revert-snapshot-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+} 

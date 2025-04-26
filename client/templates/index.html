@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Real-Time Collaborative Editor</h1>
+    <div id="editor">
+        <textarea id="text-area" rows="20" cols="80"></textarea>
+    </div>
+    <div id="status">
+        Status: <span id="connection-status">Disconnected</span>
+    </div>
+
+    <div id="controls">
+        <button id="save-snapshot-btn">Save Snapshot</button>
+    </div>
+
+    <div id="history">
+        <h2>Snapshots</h2>
+        <select id="snapshot-list" size="5">
+            <option value="">Loading...</option>
+        </select>
+        <button id="revert-snapshot-btn" disabled>Revert to Selected</button>
+    </div>
+
+    <!-- Include Socket.IO client library -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <!-- Include our custom script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
